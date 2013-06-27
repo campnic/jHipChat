@@ -208,6 +208,7 @@ public class Room extends RoomId
                 params.append(URLEncoder.encode(from.getName(), "UTF-8"));
                 params.append("&message=");
                 params.append(URLEncoder.encode(message, "UTF-8"));
+                params.append("&message_format=html");
             } catch (UnsupportedEncodingException e)
             {
                 throw new RuntimeException(e);
