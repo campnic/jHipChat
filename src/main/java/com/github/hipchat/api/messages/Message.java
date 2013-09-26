@@ -28,6 +28,11 @@ public interface Message
         YELLOW, RED, GREEN, PURPLE, RANDOM;
     }
 
+    public enum Format
+    {
+        TEXT, HTML
+    }
+
     public UserId getSender();
 
     public String getText();

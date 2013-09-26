@@ -37,6 +37,7 @@ import org.apache.commons.io.IOUtils;
 
 import com.github.hipchat.api.messages.HistoryMessage;
 import com.github.hipchat.api.messages.Message.Color;
+import com.github.hipchat.api.messages.Message.Format;
 import com.github.hipchat.api.messages.MessageParser;
 
 public class Room extends RoomId
@@ -189,7 +190,29 @@ public class Room extends RoomId
         return messages;
     }
 
-    public boolean sendMessage(String message, UserId from, boolean notify, Color color)
+    /**
+     * Send a message to the current room.
+     *
+     * @see Room#sendMessage( String, UserId, boolean, Color, Format )
+     */
+    public boolean sendMessage(String message, UserId from, boolean notify, Color color )
+    {
+        return sendMessage( message, from, notify, color );
+    }
+
+    /**
+     * Send a message to the current room.  See the hipchat API Documentation
+     * for details
+     *
+     * @see https://www.hipchat.com/docs/api/method/rooms/message
+     *
+     * @param message the message to be sent.
+     * @param from  The user that the message should be from.  {@link UserId.name} will be used if {@link UserId.id} is not specified.
+     * @param notify IF true, the message will trigger notifications for people in the room.  API defaults to 'false' if not specified.
+     * @param color The color to highlight the message with.  API defaults to 'yellow' if this is not specified
+     * @param message_format The format to display the message as.  API defaults to html if this is not specified.
+     */
+    public boolean sendMessage(String message, UserId from, boolean notify, Color color, Format message_format )
     {
         String query = String.format(HipChatConstants.ROOMS_MESSAGE_QUERY_FORMAT, HipChatConstants.JSON_FORMAT, getOrigin().getAuthToken());
 
@@ -225,6 +248,13 @@ public class Room extends RoomId
             params.append("&color=");
             params.append(color.name().toLowerCase());
         }
+
+        if (message_format != null)
+        {
+            params.append("&message_format=");
+            params.append(message_format.name().toLowerCase());
+        }
+
 
         final String paramsToSend = params.toString();
 
