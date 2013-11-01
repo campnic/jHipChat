@@ -1,9 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.hipchat</groupId>
     <artifactId>jHipchat</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <scm>
+        <url>git@github.com:metova/jHipChat.git</url>
+        <developerConnection>scm:git:git@github.com:metova/jHipChat.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -33,4 +46,16 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>metova</id>
+            <name>Metova Repo</name>
+            <url>http://repo.metova.com/nexus/content/repositories/metova/</url>
+        </repository>
+        <snapshotRepository>
+            <id>metova-snapshots</id>
+            <name>Metova Repo</name>
+            <url>http://repo.metova.com/nexus/content/repositories/metova-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
