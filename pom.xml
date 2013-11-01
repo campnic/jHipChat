@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.hipchat</groupId>
     <artifactId>jHipchat</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>${project.artifactId}</name>
     <scm>
         <url>git@github.com:metova/jHipChat.git</url>
