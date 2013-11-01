@@ -46,4 +46,16 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>metova</id>
+            <name>Metova Repo</name>
+            <url>http://repo.metova.com/nexus/content/repositories/metova/</url>
+        </repository>
+        <snapshotRepository>
+            <id>metova-snapshots</id>
+            <name>Metova Repo</name>
+            <url>http://repo.metova.com/nexus/content/repositories/metova-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
